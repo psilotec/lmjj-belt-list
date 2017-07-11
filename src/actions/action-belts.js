@@ -1,5 +1,5 @@
 import { FETCH_BELTS, BELT_SELECTED } from './types';
-import database from '../startup/database';
+import database from '../startup/db';
 
 const Belts = database.ref().child('belts');
 
