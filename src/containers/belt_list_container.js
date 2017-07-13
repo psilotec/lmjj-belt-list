@@ -15,8 +15,8 @@ const mapDispatchToProps = {
 };
 
 const BeltListContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(BeltList);
 
 export default BeltListContainer;
