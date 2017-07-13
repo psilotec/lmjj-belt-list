@@ -27,12 +27,12 @@ class App extends Component {
             collapsed={this.state.collapsed}
           >
             <div className="logo">
-              LMJJ
+              <a href="https://www.lawmanjiujitsu.com/"><Icon type="arrow-left" />Back to LMJJ Logo</a>
             </div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item key="1">
-                <Icon type="arrow-left" />
-                <span>Back to Lawman Jiu Jitsu</span>
+                <Icon type="bars" />
+                <span>Belt List</span>
               </Menu.Item>
               <Menu.Item key="2">
                 <Icon type="user" />
