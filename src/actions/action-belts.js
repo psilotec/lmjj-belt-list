@@ -1,7 +1,9 @@
-import { FETCH_BELTS, BELT_SELECTED } from './types';
+import { FETCH_BELTS, BELT_SELECTED, FETCH_BELT_IMAGES} from './types';
 import database from '../startup/db';
 
 const Belts = database.ref().child('belts');
+const BeltImages = database.ref().child('beltImages');
+
 
 const fetchBelts = () => {
     return dispatch => {
@@ -21,7 +23,19 @@ const selectBelt = (belt) => {
     };
 };
 
+const fetchBeltImages = () => {
+    return dispatch => {
+        BeltImages.on('value', snapshot => {
+            dispatch({
+                type: FETCH_BELT_IMAGES,
+                payload: snapshot.val(),
+            })
+        })
+    };
+};
+
 export {
     fetchBelts,
     selectBelt,
+    fetchBeltImages,
 };
