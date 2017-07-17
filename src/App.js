@@ -10,7 +10,7 @@ class App extends Component {
     collapsed: true,
   };
 
-  toggle = () => {
+  toggleSideMenu = () => {
     this.setState({
       collapsed: !this.state.collapsed,
     });
@@ -48,9 +48,9 @@ class App extends Component {
           <Layout>
             <Header style={{ background: '#fff', padding: 0 }}>
               <Icon
-                className="trigger"
+                className="side-menu-trigger"
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                onClick={this.toggle}
+                onClick={this.toggleSideMenu}
               />
             </Header>
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
