@@ -16,17 +16,22 @@
 }
 
 .belt-image {
+    display: flex;
+    align-items: stretch;
     align-self: center;
     margin-top: 15px;
     margin-right: 35%;
+    margin-left: 5%;
+    align-self: stretch;
 }
 
 .belt-display {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-content: stretch;
 }
 
-.trigger {
+.side-menu-trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 16px;
@@ -34,7 +39,7 @@
   transition: color .3s;
 }
 
-.trigger:hover {
+.side-menu-trigger:hover {
   color: #108ee9;
 }
 
