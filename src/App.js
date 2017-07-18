@@ -28,7 +28,7 @@ class App extends Component {
             collapsed={this.state.collapsed}
           >
             <div className="logo">
-              <a href="https://www.lawmanjiujitsu.com/"><Icon type="arrow-left" />Back to LMJJ Logo</a>
+              <a href="https://www.lawmanjiujitsu.com/"><Icon type="arrow-left" />Back to LMJJ</a>
             </div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item key="1">

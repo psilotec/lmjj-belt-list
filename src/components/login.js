@@ -16,7 +16,7 @@ class Login extends Component {
         event.preventDefault();
         this.props.form.validateFields((error, values) => {
             if (!error) {
-                console.log('Received values of form: ', values);
+                this.props.login(values);
             }
         });
     }
@@ -25,18 +25,18 @@ class Login extends Component {
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
 
         // Only show error after a field is touched
-        const userNameError = isFieldTouched('userName') && getFieldError('userName');
+        const emailError = isFieldTouched('email') && getFieldError('email');
         const passwordError = isFieldTouched('password') && getFieldError('password');
 
         return (
             <Form layout="inline" onSubmit={this.handleSubmit}>
                 <FormItem
-                    validateStatus={userNameError ? 'error' : ''}
-                    help={userNameError || ''}>
-                    {getFieldDecorator('userName', {
-                        rules: [{ required: true, message: 'Please enter a username' }],
+                    validateStatus={emailError ? 'error' : ''}
+                    help={emailError || ''}>
+                    {getFieldDecorator('email', {
+                        rules: [{ required: true, message: 'Please enter an email address' }],
                     })(
-                        <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+                        <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Email" />
                     )}
                 </FormItem>
 
