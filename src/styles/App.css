@@ -32,20 +32,38 @@
 }
 
 .side-menu-trigger {
-  font-size: 18px;
-  line-height: 64px;
-  padding: 0 16px;
-  cursor: pointer;
-  transition: color .3s;
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: color .3s;
 }
 
 .side-menu-trigger:hover {
-  color: #108ee9;
+    color: #108ee9;
 }
 
 .logo {
-  height: 32px;
-  background: #333;
-  border-radius: 6px;
-  margin: 16px;
+    height: 32px;
+    background: #333;
+    border-radius: 6px;
+    margin: 16px;
+}
+
+.ant-layout {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
+
+/* Layout styling for login form */
+.ant-layout-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Prevent login form from wrapping on small screens */
+.ant-form {
+    display: flex;
+    flex-wrap: nowrap;
 }

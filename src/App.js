@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
+import Login from './components/login';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
@@ -52,6 +53,7 @@ class App extends Component {
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggleSideMenu}
               />
+              <Login />
             </Header>
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               <BeltListContainer />
