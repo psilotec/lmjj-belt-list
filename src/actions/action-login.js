@@ -1,5 +1,4 @@
 import { LOGIN_SUCCESS, LOGIN_FAIL } from './types';
-import database from '../startup/db';
 import firebase from 'firebase';
 
 const login = ({ email, password }) => {
