@@ -10,7 +10,7 @@ class BeltImage extends Component {
         return (
             <div className="current-belt-image-container">
                 { (this.props.beltImages)                
-                    ?<div className="belt-image">
+                    ?<div>
                         <img src={this.props.currentBeltImage} alt="Belt" className="current-belt-image" />
                     </div>
                     : <Spin /> }
