@@ -14,17 +14,29 @@ class Login extends Component {
     
     handleSubmit = (event) => {
         event.preventDefault();
+
         this.props.form.validateFields((error, values) => {
             if (!error) {
-                this.props.login(values);
+                this.props.login(values)
+                .catch((error) => {
+                    this.props.form.setFields({
+                        email: {
+                            errors: [new Error(error.code)],
+                            value: '',
+                        },
+                        password: {
+                            value: '',
+                        },
+                    });
+                });
             }
         });
     }
 
     render() {
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
-
         // Only show error after a field is touched
+        const firebaseError = getFieldError('email');
         const emailError = isFieldTouched('email') && getFieldError('email');
         const passwordError = isFieldTouched('password') && getFieldError('password');
 
@@ -32,7 +44,7 @@ class Login extends Component {
             <Form layout="inline" onSubmit={this.handleSubmit}>
                 <FormItem
                     validateStatus={emailError ? 'error' : ''}
-                    help={emailError || ''}>
+                    help={emailError || firebaseError ||  ''}>
                     {getFieldDecorator('email', {
                         rules: [{ required: true, message: 'Please enter an email address' }],
                     })(
