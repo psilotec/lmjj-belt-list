@@ -17,7 +17,9 @@ class Login extends Component {
 
         this.props.form.validateFields((error, values) => {
             if (!error) {
+                // Login action
                 this.props.login(values)
+                // Catch firebase login errors and trigger the ant error help message
                 .catch((error) => {
                     this.props.form.setFields({
                         email: {
