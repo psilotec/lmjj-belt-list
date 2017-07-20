@@ -53,7 +53,11 @@ class App extends Component {
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggleSideMenu}
               />
-              <LoginContainer />
+              {(this.props.loggedIn && (this.props.userInfo != null)) 
+                ? <p className="username">{this.props.userInfo.user.email}</p>
+                : <LoginContainer />
+              }
+              
             </Header>
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               <BeltListContainer />
