@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BeltListDisplay from '../components/belt_list_display';
-import { fetchBelts, selectBelt, fetchBeltImages, login } from '../actions/index';
+import { fetchBelts, selectBelt, fetchBeltImages } from '../actions/index';
 
 const mapStateToProps = (state) => {
     return {
@@ -15,7 +15,6 @@ const mapDispatchToProps = {
     fetchBelts, 
     selectBelt,
     fetchBeltImages,
-    login,
 };
 
 const BeltListContainer = connect(

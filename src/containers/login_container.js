@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from '../components/login';
-import { login } from '../actions/index';
+import { login, register } from '../actions/index';
 
 const mapStateToProps = (state) => {
     return {
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     login,
+    register,
 };
 
 const LoginContainer = connect(
