@@ -12,14 +12,14 @@ class Login extends Component {
         this.props.form.validateFields();
     }
     
-    handleSubmit = (event) => {
+    handleLoginSubmit = (event) => {
         event.preventDefault();
 
         this.props.form.validateFields((error, values) => {
             if (!error) {
                 // Login action
                 this.props.login(values)
-                // Catch firebase login errors and trigger the ant error help message
+                // Catch firebase login errors and trigger ant error help message
                 .catch((error) => {
                     this.props.form.setFields({
                         email: {
@@ -35,6 +35,29 @@ class Login extends Component {
         });
     }
 
+    handleRegisterSubmit = (event) => {
+        event.preventDefault();
+
+        this.props.form.validateFields((error, values) => {
+            if(!error) {
+                // Register action
+                this.props.register(values)
+                // Catch firebase register errors and trigger ant error help message
+                .catch((error) => {
+                    this.props.form.setFields({
+                        email: {
+                            errors: [new Error(error.code)],
+                            value: '',
+                        },
+                        password: {
+                            value: '',
+                        },
+                    });
+                });
+            }
+        })
+    }
+
     render() {
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
         // Only show error after a field is touched
@@ -43,7 +66,7 @@ class Login extends Component {
         const passwordError = isFieldTouched('password') && getFieldError('password');
 
         return (
-            <Form layout="inline" onSubmit={this.handleSubmit}>
+            <Form layout="inline" onSubmit={this.handleLoginSubmit}>
                 <FormItem
                     validateStatus={emailError ? 'error' : ''}
                     help={emailError || firebaseError ||  ''}>
@@ -70,6 +93,15 @@ class Login extends Component {
                         htmlType="submit"
                         disabled={hasErrors(getFieldsError())}>
                         Log in
+                    </Button>
+                </FormItem>
+                
+                <FormItem>
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        disabled={hasErrors(getFieldsError())}>
+                        Register
                     </Button>
                 </FormItem>
             </Form>
