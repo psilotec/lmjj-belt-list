@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL } from './types';
+import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL, USER_INFO } from './types';
 import firebase from 'firebase';
 
 const login = ({ email, password }) => {
@@ -23,6 +23,7 @@ const register = ({ email, password }) => {
             firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((user) => {
                 dispatch({ type: REGISTER_SUCCESS, payload: { user } });
+                dispatch({ type: USER_INFO, payload: { user } });
                 resolve(user);
             })
             .catch((error) => {
