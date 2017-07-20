@@ -7,55 +7,61 @@ function hasErrors(fieldsError) {
 }
 
 class Login extends Component {
+    state = {
+        submitAction: this.handleSubmit,
+        showLogin: true,
+    }
+
     componentDidMount() {
         // Disables submit at mount
         this.props.form.validateFields();
     }
     
-    handleLoginSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
 
         this.props.form.validateFields((error, values) => {
             if (!error) {
-                // Login action
-                this.props.login(values)
-                // Catch firebase login errors and trigger ant error help message
-                .catch((error) => {
-                    this.props.form.setFields({
-                        email: {
-                            errors: [new Error(error.code)],
-                            value: '',
-                        },
-                        password: {
-                            value: '',
-                        },
-                    });
-                });
+                // Fire off login or register action depending on this.state.showLogin
+                (this.state.showLogin)
+                    ? (
+                    // Login action
+                    this.props.login(values)
+                    // Catch firebase login errors and trigger ant error help message
+                    .catch((error) => {
+                        this.props.form.setFields({
+                            email: {
+                                errors: [new Error(error.code)],
+                                value: '',
+                            },
+                            password: {
+                                value: '',
+                            },
+                        });
+                    }))
+                    : (
+                    // Register action
+                    this.props.register(values)
+                    // Catch firebase login errors and trigger ant error help message
+                    .catch((error) => {
+                        this.props.form.setFields({
+                            email: {
+                                errors: [new Error(error.code)],
+                                value: '',
+                            },
+                            password: {
+                                value: '',
+                            },
+                        });
+                    }))
             }
         });
     }
 
-    handleRegisterSubmit = (event) => {
-        event.preventDefault();
-
-        this.props.form.validateFields((error, values) => {
-            if(!error) {
-                // Register action
-                this.props.register(values)
-                // Catch firebase register errors and trigger ant error help message
-                .catch((error) => {
-                    this.props.form.setFields({
-                        email: {
-                            errors: [new Error(error.code)],
-                            value: '',
-                        },
-                        password: {
-                            value: '',
-                        },
-                    });
-                });
-            }
-        })
+    showLoginOrRegister = () => {
+        this.setState((prevState, props) => ({
+            showLogin: !prevState.showLogin,
+        }));
     }
 
     render() {
@@ -66,7 +72,7 @@ class Login extends Component {
         const passwordError = isFieldTouched('password') && getFieldError('password');
 
         return (
-            <Form layout="inline" onSubmit={this.handleLoginSubmit}>
+            <Form layout="inline" onSubmit={this.handleSubmit}>
                 <FormItem
                     validateStatus={emailError ? 'error' : ''}
                     help={emailError || firebaseError ||  ''}>
@@ -87,23 +93,29 @@ class Login extends Component {
                     )}
                 </FormItem>
 
-                <FormItem>
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        disabled={hasErrors(getFieldsError())}>
-                        Log in
-                    </Button>
-                </FormItem>
-                
-                <FormItem>
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        disabled={hasErrors(getFieldsError())}>
-                        Register
-                    </Button>
-                </FormItem>
+                {(this.state.showLogin) 
+                    ? (<FormItem>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            disabled={hasErrors(getFieldsError())}>
+                            Log in
+                        </Button>
+                    </FormItem>)
+                    : (<FormItem>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            disabled={hasErrors(getFieldsError())}>
+                            Register
+                        </Button>
+                    </FormItem>)
+                }
+
+                {(this.state.showLogin) 
+                    ? (<a onClick={this.showLoginOrRegister}>Register</a>)
+                    : (<a onClick={this.showLoginOrRegister}>Login</a>)
+                }
             </Form>
         );
     }
