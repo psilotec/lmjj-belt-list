@@ -114,7 +114,7 @@ class Login extends Component {
 
                 {(this.state.showLogin) 
                     ? (<a onClick={this.showLoginOrRegister}>Register</a>)
-                    : (<a onClick={this.showLoginOrRegister}>Login</a>)
+                    : (<a onClick={this.showLoginOrRegister}>Log in</a>)
                 }
             </Form>
         );
