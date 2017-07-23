@@ -113,8 +113,8 @@ class Login extends Component {
                 }
 
                 {(this.state.showLogin) 
-                    ? (<a onClick={this.showLoginOrRegister}>Register</a>)
-                    : (<a onClick={this.showLoginOrRegister}>Log in</a>)
+                    ? (<a className="login-action-text" onClick={this.showLoginOrRegister}>Register</a>)
+                    : (<a className="login-action-text" onClick={this.showLoginOrRegister}>Log in</a>)
                 }
             </Form>
         );

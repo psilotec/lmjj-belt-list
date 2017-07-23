@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
-import LoginContainer from './containers/login_container';
+import LoginStatus from './components/login_status';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
@@ -53,11 +53,7 @@ class App extends Component {
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggleSideMenu}
               />
-              {(this.props.loggedIn && (this.props.userInfo != null)) 
-                ? <p className="username">{this.props.userInfo.user.email}</p>
-                : <LoginContainer />
-              }
-              
+              <LoginStatus loggedIn={this.props.loggedIn} userInfo={this.props.userInfo} />
             </Header>
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               <BeltListContainer />
