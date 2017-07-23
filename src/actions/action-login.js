@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL, USER_INFO } from './types';
+import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL, USER_INFO, CLEAR_USER_INFO, LOGOUT_SUCCESS, LOGOUT_FAIL } from './types';
 import firebase from 'firebase';
 
 const login = ({ email, password }) => {
@@ -35,7 +35,25 @@ const register = ({ email, password }) => {
     };
 };
 
+const logout = () => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            firebase.auth().signOut()
+            .then(() => {
+                dispatch({ type: LOGOUT_SUCCESS });
+                dispatch({ type: CLEAR_USER_INFO });
+                resolve();
+            })
+            .catch((error) => {
+                dispatch({ type: LOGOUT_FAIL, payload: { error } });
+                reject(error);
+            });
+        });
+    };
+};
+
 export {
     login,
     register,
+    logout,
 };
