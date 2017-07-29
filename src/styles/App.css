@@ -10,6 +10,11 @@
     align-items: flex-start;
 }
 
+a.return-lmjj-site {
+    font-weight: bold;
+    color: #fff;
+}
+
 .belt-list {
     align-self: flex-start;
     margin-top: 15px;
