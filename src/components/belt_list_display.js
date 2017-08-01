@@ -13,7 +13,7 @@ class BeltListDisplay extends Component {
     render() {
     let currentBeltImage = this.props.beltImages[this.props.selectedBelt];
         return (
-            ((this.props.loggedIn) 
+            ((this.props.loggedIn && (this.props.belts.length !== 0)) 
                 ? (<div className="belt-display">
                     <div className="belt-list">
                         <Belts belts={this.props.belts} selectBelt={this.props.selectBelt} />
@@ -25,14 +25,14 @@ class BeltListDisplay extends Component {
                     </div>
                     : 'Please select a belt' }
                 </div>)
-                : <div>
+                : (<div>
                     <Alert
                         message="Login Required"
                         description="Please register or login to see belt list."
                         type="info"
                         showIcon
                     />
-                </div>
+                </div>)
             )
         );
     }
