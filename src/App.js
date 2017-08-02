@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
+import LoginStatus from './components/login_status';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
@@ -26,10 +27,13 @@ class App extends Component {
             collapsible
             collapsed={this.state.collapsed}
           >
-            <div className="logo">
-              <a href="https://www.lawmanjiujitsu.com/"><Icon type="arrow-left" />Back to LMJJ Logo</a>
-            </div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+              <Menu.Item>
+                <Icon type="arrow-left" />
+                <span>
+                  <a href="https://www.lawmanjiujitsu.com/" className="return-lmjj-site">Back to LMJJ</a>
+                </span>
+              </Menu.Item>
               <Menu.Item key="1">
                 <Icon type="bars" />
                 <span>Belt List</span>
@@ -52,6 +56,7 @@ class App extends Component {
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggleSideMenu}
               />
+              <LoginStatus loggedIn={this.props.loggedIn} userInfo={this.props.userInfo} logout={this.props.logout} />
             </Header>
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               <BeltListContainer />
