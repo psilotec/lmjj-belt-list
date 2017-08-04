@@ -1,13 +1,13 @@
 import React from 'react';
 import LoginContainer from '../containers/login_container';
 
-const LoginStatus = ( { loggedIn, userInfo, logout} ) => {
+const LoginStatus = ( { loggedIn, userAuthInfo, logout} ) => {
     return (
         <div>
-            {(loggedIn && (userInfo != null)) 
+            {(loggedIn && (userAuthInfo != null)) 
             ? (<div>
                 <div className="username">
-                    {userInfo.user.email}
+                    {userAuthInfo.user.email}
                     <a className="login-action-text" onClick={logout}>Log out</a>
                 </div>    
             </div>)

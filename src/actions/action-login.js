@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL, USER_INFO, CLEAR_USER_INFO, LOGOUT_SUCCESS, LOGOUT_FAIL } from './types';
+import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL, SET_USER_AUTH_INFO, CLEAR_USER_INFO, LOGOUT_SUCCESS, LOGOUT_FAIL } from './types';
 import firebase from 'firebase';
 import database from '../startup/db';
 
@@ -10,7 +10,7 @@ const login = ({ email, password }) => {
             firebase.auth().signInWithEmailAndPassword(email, password)
             .then((user) => {
                 dispatch({ type: LOGIN_SUCCESS, payload: { user } });
-                dispatch({ type: USER_INFO, payload: { user } });
+                dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
                 resolve(user);
             })
             .catch((error) => {
@@ -27,7 +27,7 @@ const register = ({ email, password }) => {
             firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((user) => {
                 dispatch(createNewUser(email));
-                dispatch({ type: USER_INFO, payload: { user } });
+                dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
                 // TODO: dispatch(setUserDbInfo(email));
                 dispatch({ type: REGISTER_SUCCESS, payload: { user } });
                 resolve(user);

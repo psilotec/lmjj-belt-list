@@ -3,14 +3,14 @@ import BeltsReducer from './reducer_belts';
 import SelectedBeltReducer from './reducer_selected_belt';
 import BeltImagesReducer from './reducer_belt_images';
 import LoginReducer from './reducer_login';
-import UserInfoReducer from './reducer_user_info';
+import userAuthInfoReducer from './reducer_set_user_info';
 
 const rootReducer = combineReducers({
   belts: BeltsReducer,
   selectedBelt: SelectedBeltReducer,
   beltImages: BeltImagesReducer,
   loggedIn: LoginReducer,
-  userInfo: UserInfoReducer,
+  userAuthInfo: userAuthInfoReducer,
 });
 
 export default rootReducer;

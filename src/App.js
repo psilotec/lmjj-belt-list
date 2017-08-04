@@ -56,7 +56,7 @@ class App extends Component {
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggleSideMenu}
               />
-              <LoginStatus loggedIn={this.props.loggedIn} userInfo={this.props.userInfo} logout={this.props.logout} />
+              <LoginStatus loggedIn={this.props.loggedIn} userAuthInfo={this.props.userAuthInfo} logout={this.props.logout} />
             </Header>
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               <BeltListContainer />
