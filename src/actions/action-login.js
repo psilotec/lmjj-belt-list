@@ -59,7 +59,7 @@ const logout = () => {
 
 const createNewUser = (email) => {
     let propsToUpdate = {
-        name: email,
+        name: email.toLowerCase(),
         belt: "white",
         admin: false,
         joinDate: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
