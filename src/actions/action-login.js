@@ -28,6 +28,7 @@ const register = ({ email, password }) => {
             .then((user) => {
                 dispatch(createNewUser(email));
                 dispatch({ type: USER_INFO, payload: { user } });
+                // TODO: dispatch(setUserDbInfo(email));
                 dispatch({ type: REGISTER_SUCCESS, payload: { user } });
                 resolve(user);
             })
@@ -56,9 +57,9 @@ const logout = () => {
     };
 };
 
-const createNewUser = (username) => {
+const createNewUser = (email) => {
     let propsToUpdate = {
-        name: username,
+        name: email,
         belt: "white",
         admin: false,
         joinDate: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
@@ -71,6 +72,8 @@ const createNewUser = (username) => {
         })
     } 
 };
+
+// TODO: const setUserDbInfo = (email) => {
 
 export {
     login,
