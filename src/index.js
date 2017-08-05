@@ -1,25 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import AppContainer from './containers/app_container';
-import registerServiceWorker from './registerServiceWorker';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import promiseMiddleware from 'redux-promise';
-import thunk from 'redux-thunk';
+import React from "react";
+import ReactDOM from "react-dom";
+import AppContainer from "./containers/app_container";
+import registerServiceWorker from "./registerServiceWorker";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import promiseMiddleware from "redux-promise";
+import thunk from "redux-thunk";
 
-import './startup/db';
-import reducers from './reducers';
+import "./startup/db";
+import reducers from "./reducers";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(
-  applyMiddleware(thunk, promiseMiddleware)
-));
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(thunk, promiseMiddleware))
+);
 
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />
-  </Provider>
-  , document.getElementById('root'));
+  </Provider>,
+  document.getElementById("root")
+);
 
 registerServiceWorker();
-
