@@ -4,6 +4,7 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   SET_USER_AUTH_INFO,
+  SET_USER_DB_INFO,
   CLEAR_USER_INFO,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL
@@ -22,6 +23,7 @@ const login = ({ email, password }) => {
         .then(user => {
           dispatch({ type: LOGIN_SUCCESS, payload: { user } });
           dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
+          dispatch(setUserDbInfo(email));
           resolve(user);
         })
         .catch(error => {
@@ -41,7 +43,7 @@ const register = ({ email, password }) => {
         .then(user => {
           dispatch(createNewUser(email));
           dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
-          // TODO: dispatch(setUserDbInfo(email));
+          dispatch(setUserDbInfo(email));
           dispatch({ type: REGISTER_SUCCESS, payload: { user } });
           resolve(user);
         })
@@ -87,6 +89,16 @@ const createNewUser = email => {
   };
 };
 
-// TODO: const setUserDbInfo = (email) => {
+const setUserDbInfo = email => {
+  return dispatch => {
+    Users.orderByChild("name").equalTo(email).on("value", snapshot => {
+      console.log(snapshot.val());
+      dispatch({
+        type: SET_USER_DB_INFO,
+        payload: snapshot.val()
+      });
+    });
+  };
+};
 
-export { login, register, logout, createNewUser };
+export { login, register, logout, createNewUser, setUserDbInfo };
