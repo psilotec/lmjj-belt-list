@@ -7,12 +7,12 @@ import {
   SET_USER_DB_INFO,
   CLEAR_USER_INFO,
   LOGOUT_SUCCESS,
-  LOGOUT_FAIL
-} from "./types";
-import firebase from "firebase";
-import database from "../startup/db";
+  LOGOUT_FAIL,
+} from './types';
+import firebase from 'firebase';
+import database from '../startup/db';
 
-const Users = database.ref().child("users");
+const Users = database.ref().child('users');
 
 const login = ({ email, password }) => {
   return dispatch => {
@@ -77,9 +77,9 @@ const logout = () => {
 const createNewUser = email => {
   let propsToUpdate = {
     name: email.toLowerCase(),
-    belt: "white",
+    belt: 'white',
     admin: false,
-    joinDate: new Date().toJSON().slice(0, 10).replace(/-/g, "/")
+    joinDate: new Date().toJSON().slice(0, 10).replace(/-/g, '/'),
   };
 
   return dispatch => {
@@ -91,11 +91,16 @@ const createNewUser = email => {
 
 const setUserDbInfo = email => {
   return dispatch => {
-    Users.orderByChild("name").equalTo(email).on("value", snapshot => {
-      console.log(snapshot.val());
-      dispatch({
-        type: SET_USER_DB_INFO,
-        payload: snapshot.val()
+    Users.orderByChild('name').equalTo(email).on('value', snapshot => {
+      snapshot.forEach(childSnapshot => {
+        dispatch({
+          type: SET_USER_DB_INFO,
+          payload: {
+            admin: childSnapshot.val().admin,
+            belt: childSnapshot.val().belt,
+            joinDate: childSnapshot.val().joinDate,
+          },
+        });
       });
     });
   };

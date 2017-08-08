@@ -7,7 +7,8 @@ const mapStateToProps = state => {
     belts: state.belts,
     selectedBelt: state.selectedBelt,
     beltImages: state.beltImages,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+    userDbInfo: state.userDbInfo
   };
 };
 
