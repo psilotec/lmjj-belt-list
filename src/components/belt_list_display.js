@@ -12,13 +12,15 @@ class BeltListDisplay extends Component {
 
   render() {
     let currentBeltImage = this.props.beltImages[this.props.selectedBelt];
-    console.log(this.props.userDbInfo);
-    return this.props.loggedIn && this.props.belts.length !== 0
+    return this.props.loggedIn &&
+    this.props.belts.length !== 0 &&
+    this.props.userDbInfo != null
       ? <div className="belt-display">
           <div className="belt-list">
             <Belts
               belts={this.props.belts}
               selectBelt={this.props.selectBelt}
+              userDbInfo={this.props.userDbInfo}
             />
           </div>
 

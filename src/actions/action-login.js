@@ -77,7 +77,7 @@ const logout = () => {
 const createNewUser = email => {
   let propsToUpdate = {
     name: email.toLowerCase(),
-    belt: 'white',
+    beltPermissionId: 0,
     admin: false,
     joinDate: new Date().toJSON().slice(0, 10).replace(/-/g, '/'),
   };
@@ -97,7 +97,7 @@ const setUserDbInfo = email => {
           type: SET_USER_DB_INFO,
           payload: {
             admin: childSnapshot.val().admin,
-            belt: childSnapshot.val().belt,
+            beltPermissionId: childSnapshot.val().beltPermissionId,
             joinDate: childSnapshot.val().joinDate,
           },
         });
