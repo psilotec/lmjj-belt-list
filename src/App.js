@@ -1,19 +1,24 @@
-import React, { Component } from "react";
-import "./styles/App.css";
-import BeltListContainer from "./containers/belt_list_container";
-import LoginStatus from "./components/login_status";
+import React, { Component } from 'react';
+import './styles/App.css';
+import BeltListContainer from './containers/belt_list_container';
+import LoginStatus from './components/login_status';
 
-import { Layout, Menu, Icon } from "antd";
+import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
 
 class App extends Component {
   state = {
-    collapsed: true
+    collapsed: true,
   };
+
+  componentWillMount() {
+    this.props.fetchBelts();
+    this.props.fetchBeltImages();
+  }
 
   toggleSideMenu = () => {
     this.setState({
-      collapsed: !this.state.collapsed
+      collapsed: !this.state.collapsed,
     });
   };
 
@@ -22,7 +27,7 @@ class App extends Component {
       <div className="app">
         <Layout>
           <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item>
                 <Icon type="arrow-left" />
                 <span>
@@ -50,10 +55,10 @@ class App extends Component {
           </Sider>
 
           <Layout>
-            <Header style={{ background: "#fff", padding: 0 }}>
+            <Header style={{ background: '#fff', padding: 0 }}>
               <Icon
                 className="side-menu-trigger"
-                type={this.state.collapsed ? "menu-unfold" : "menu-fold"}
+                type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggleSideMenu}
               />
               <LoginStatus
@@ -64,10 +69,10 @@ class App extends Component {
             </Header>
             <Content
               style={{
-                margin: "24px 16px",
+                margin: '24px 16px',
                 padding: 24,
-                background: "#fff",
-                minHeight: 280
+                background: '#fff',
+                minHeight: 280,
               }}
             >
               <BeltListContainer />

@@ -5,11 +5,6 @@ import Belts from './belts';
 import BeltImage from './belt_image';
 
 class BeltListDisplay extends Component {
-  componentWillMount() {
-    this.props.fetchBelts();
-    this.props.fetchBeltImages();
-  }
-
   render() {
     let currentBeltImage = this.props.beltImages[this.props.selectedBelt];
     return this.props.loggedIn &&

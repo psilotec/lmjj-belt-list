@@ -1,6 +1,6 @@
-import { connect } from "react-redux";
-import BeltListDisplay from "../components/belt_list_display";
-import { fetchBelts, selectBelt, fetchBeltImages } from "../actions/index";
+import { connect } from 'react-redux';
+import BeltListDisplay from '../components/belt_list_display';
+import { selectBelt } from '../actions/index';
 
 const mapStateToProps = state => {
   return {
@@ -8,14 +8,12 @@ const mapStateToProps = state => {
     selectedBelt: state.selectedBelt,
     beltImages: state.beltImages,
     loggedIn: state.loggedIn,
-    userDbInfo: state.userDbInfo
+    userDbInfo: state.userDbInfo,
   };
 };
 
 const mapDispatchToProps = {
-  fetchBelts,
   selectBelt,
-  fetchBeltImages
 };
 
 const BeltListContainer = connect(mapStateToProps, mapDispatchToProps)(
