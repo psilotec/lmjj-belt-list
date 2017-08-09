@@ -10,6 +10,17 @@
   align-items: flex-start;
 }
 
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lmjj-logo {
+  height: 7rem;
+  width: 15rem;
+}
+
 a.return-lmjj-site {
   font-weight: bold;
   color: #fff;

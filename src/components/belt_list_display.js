@@ -5,7 +5,7 @@ import Belts from './belts';
 import BeltImage from './belt_image';
 
 class BeltListDisplay extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchBelts();
     this.props.fetchBeltImages();
   }
@@ -33,12 +33,17 @@ class BeltListDisplay extends Component {
               </div>
             : 'Please select a belt'}
         </div>
-      : <div>
+      : <div className="landing-page">
           <Alert
             message="Login Required"
             description="Please register or login to see belt list."
             type="info"
             showIcon
+          />
+          <img
+            src="https://s3.amazonaws.com/jj-app/lmjj-logo.png"
+            alt="lmjj-logo"
+            className="lmjj-logo"
           />
         </div>;
   }
