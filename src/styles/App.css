@@ -75,6 +75,7 @@ a.return-lmjj-site {
 .ant-layout-header {
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 /* Prevent login form from wrapping on small screens */
@@ -89,6 +90,6 @@ a.return-lmjj-site {
 }
 
 .login-action-text {
-  margin-left: 5px;
   margin-right: 10px;
+  white-space: nowrap;
 }
