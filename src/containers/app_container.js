@@ -7,6 +7,7 @@ const mapStateToProps = state => {
   return {
     loggedIn: state.loggedIn,
     userAuthInfo: state.userAuthInfo,
+    userDbInfo: state.userDbInfo,
   };
 };
 

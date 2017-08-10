@@ -11,7 +11,7 @@ class App extends Component {
     collapsed: true,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchBelts();
     this.props.fetchBeltImages();
   }
@@ -43,14 +43,12 @@ class App extends Component {
                 <Icon type="bars" />
                 <span>Belt List</span>
               </Menu.Item>
-              <Menu.Item key="2">
-                <Icon type="user" />
-                <span>User Settings</span>
-              </Menu.Item>
-              <Menu.Item key="3">
-                <Icon type="upload" />
-                <span>Admin Console</span>
-              </Menu.Item>
+              {this.props.userDbInfo != null && this.props.userDbInfo.admin
+                ? <Menu.Item key="2">
+                    <Icon type="upload" />
+                    <span>Admin Console</span>
+                  </Menu.Item>
+                : ''}
             </Menu>
           </Sider>
 
