@@ -1,5 +1,5 @@
-import React from "react";
-import LoginContainer from "../containers/login_container";
+import React from 'react';
+import LoginContainer from '../../containers/login_container';
 
 const LoginStatus = ({ loggedIn, userAuthInfo, logout }) => {
   return (

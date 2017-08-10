@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
-import LoginStatus from './components/login_status';
+import LoginStatus from './components/auth/login_status';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;

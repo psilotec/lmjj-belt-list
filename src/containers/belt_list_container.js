@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BeltListDisplay from '../components/belt_list_display';
+import BeltListDisplay from '../components/belts/belt_list_display';
 import { selectBelt } from '../actions/index';
 
 const mapStateToProps = state => {

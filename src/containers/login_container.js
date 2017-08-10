@@ -1,16 +1,16 @@
-import { connect } from "react-redux";
-import Login from "../components/login";
-import { login, register } from "../actions/index";
+import { connect } from 'react-redux';
+import Login from '../components/auth/login';
+import { login, register } from '../actions/index';
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
   };
 };
 
 const mapDispatchToProps = {
   login,
-  register
+  register,
 };
 
 const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);
