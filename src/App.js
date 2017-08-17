@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
 import LoginStatus from './components/auth/login_status';
+import Welcome from './components/welcome';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
@@ -79,11 +80,7 @@ class App extends Component {
                   minHeight: 280,
                 }}
               >
-                <Route
-                  exact={true}
-                  path="/"
-                  render={() => <div>Welcome</div>}
-                />
+                <Route exact={true} path="/" component={Welcome} />
                 <Route path="/belt-list" component={BeltListContainer} />
                 <Route path="/admin-console" render={() => <div>Admin</div>} />
               </Content>
