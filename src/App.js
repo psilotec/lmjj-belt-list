@@ -79,7 +79,13 @@ class App extends Component {
                   minHeight: 280,
                 }}
               >
-                <BeltListContainer />
+                <Route
+                  exact={true}
+                  path="/"
+                  render={() => <div>Welcome</div>}
+                />
+                <Route path="/belt-list" component={BeltListContainer} />
+                <Route path="/admin-console" render={() => <div>Admin</div>} />
               </Content>
             </Layout>
           </Layout>
