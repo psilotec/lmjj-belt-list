@@ -48,6 +48,10 @@ a.return-lmjj-site {
   align-content: stretch;
 }
 
+.item {
+  margin-bottom: 1px;
+}
+
 .side-menu-trigger {
   font-size: 18px;
   line-height: 64px;
