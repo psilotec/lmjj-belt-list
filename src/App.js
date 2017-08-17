@@ -4,6 +4,7 @@ import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
 import LoginStatus from './components/auth/login_status';
 import Welcome from './components/welcome';
+import AdminPanel from './components/admin/admin_panel';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
@@ -50,7 +51,7 @@ class App extends Component {
                 </Menu.Item>
                 {this.props.userDbInfo != null && this.props.userDbInfo.admin
                   ? <Menu.Item key="2">
-                      <Link to={`/admin-console`}>
+                      <Link to={`/admin-panel`}>
                         <Icon type="upload" />
                         <span>Admin Console</span>
                       </Link>
@@ -82,7 +83,7 @@ class App extends Component {
               >
                 <Route exact={true} path="/" component={Welcome} />
                 <Route path="/belt-list" component={BeltListContainer} />
-                <Route path="/admin-console" render={() => <div>Admin</div>} />
+                <Route path="/admin-panel" component={AdminPanel} />
               </Content>
             </Layout>
           </Layout>
