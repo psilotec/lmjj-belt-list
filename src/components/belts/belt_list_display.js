@@ -28,17 +28,12 @@ class BeltListDisplay extends Component {
               </div>
             : 'Please select a belt'}
         </div>
-      : <div className="landing-page">
+      : <div className="content-message-center">
           <Alert
             message="Login Required"
             description="Please register or login to see belt list."
             type="info"
             showIcon
-          />
-          <img
-            src="https://s3.amazonaws.com/jj-app/lmjj-logo.png"
-            alt="lmjj-logo"
-            className="lmjj-logo"
           />
         </div>;
   }

@@ -10,10 +10,12 @@
   align-items: flex-start;
 }
 
-.landing-page {
+.content-message-center {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 60vh;
 }
 
 .lmjj-logo {
@@ -44,6 +46,10 @@ a.return-lmjj-site {
   display: flex;
   justify-content: flex-start;
   align-content: stretch;
+}
+
+.item {
+  margin-bottom: 1px;
 }
 
 .side-menu-trigger {
