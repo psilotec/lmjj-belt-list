@@ -12,6 +12,9 @@ import Welcome from './components/welcome';
 import AdminPanel from './components/admin/admin_panel';
 
 import { Layout, Menu, Icon } from 'antd';
+
+import './styles/App.css';
+
 const { Header, Sider, Content } = Layout;
 
 class App extends Component {
