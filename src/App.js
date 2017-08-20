@@ -11,6 +11,7 @@ import LoginStatus from './components/auth/login_status';
 import Welcome from './components/welcome';
 import AdminPanel from './components/admin/admin_panel';
 
+import firebase from 'firebase';
 import { Layout, Menu, Icon } from 'antd';
 
 import './styles/App.css';
@@ -21,6 +22,17 @@ class App extends Component {
   state = {
     collapsed: true,
   };
+
+  componentWillMount() {
+    // Listen for Auth Changes
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.loginPersist(user);
+      } else {
+        this.props.logout();
+      }
+    });
+  }
 
   toggleSideMenu = () => {
     this.setState({

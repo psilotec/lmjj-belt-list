@@ -111,4 +111,14 @@ const setUserDbInfo = email => {
   };
 };
 
-export { login, register, logout, createNewUser, setUserDbInfo };
+const loginPersist = user => {
+  return dispatch => {
+    dispatch({ type: LOGIN_SUCCESS, payload: { user } });
+    dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
+    dispatch(setUserDbInfo(user.email));
+    dispatch(fetchBelts());
+    dispatch(fetchBeltImages());
+  };
+};
+
+export { login, register, logout, createNewUser, setUserDbInfo, loginPersist };
