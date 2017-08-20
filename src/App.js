@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom';
 import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
 import LoginStatus from './components/auth/login_status';
@@ -76,7 +81,14 @@ class App extends Component {
                   minHeight: 280,
                 }}
               >
-                <Route exact={true} path="/" component={Welcome} />
+                <Route
+                  exact={true}
+                  path="/"
+                  render={() =>
+                    this.props.loggedIn
+                      ? <Redirect to="/belt-list" />
+                      : <Welcome />}
+                />
                 <Route path="/belt-list" component={BeltListContainer} />
                 <Route path="/admin-panel" component={AdminPanel} />
               </Content>
