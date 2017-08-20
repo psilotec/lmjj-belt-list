@@ -14,11 +14,6 @@ class App extends Component {
     collapsed: true,
   };
 
-  componentDidMount() {
-    this.props.fetchBelts();
-    this.props.fetchBeltImages();
-  }
-
   toggleSideMenu = () => {
     this.setState({
       collapsed: !this.state.collapsed,
