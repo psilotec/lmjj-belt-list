@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Form, Icon, Input, Button } from "antd";
+import React, { Component } from 'react';
+import { Form, Icon, Input, Button } from 'antd';
 
 const FormItem = Form.Item;
 function hasErrors(fieldsError) {
@@ -9,7 +9,7 @@ function hasErrors(fieldsError) {
 class Login extends Component {
   state = {
     submitAction: this.handleSubmit,
-    showLogin: true
+    showLogin: true,
   };
 
   componentDidMount() {
@@ -32,11 +32,11 @@ class Login extends Component {
                 this.props.form.setFields({
                   email: {
                     errors: [new Error(error.code)],
-                    value: ""
+                    value: '',
                   },
                   password: {
-                    value: ""
-                  }
+                    value: '',
+                  },
                 });
               })
           : // Register action
@@ -47,11 +47,11 @@ class Login extends Component {
                 this.props.form.setFields({
                   email: {
                     errors: [new Error(error.code)],
-                    value: ""
+                    value: '',
                   },
                   password: {
-                    value: ""
-                  }
+                    value: '',
+                  },
                 });
               });
       }
@@ -60,7 +60,7 @@ class Login extends Component {
 
   showLoginOrRegister = () => {
     this.setState((prevState, props) => ({
-      showLogin: !prevState.showLogin
+      showLogin: !prevState.showLogin,
     }));
   };
 
@@ -69,24 +69,24 @@ class Login extends Component {
       getFieldDecorator,
       getFieldsError,
       getFieldError,
-      isFieldTouched
+      isFieldTouched,
     } = this.props.form;
     // Only show error after a field is touched
-    const firebaseError = getFieldError("email");
-    const emailError = isFieldTouched("email") && getFieldError("email");
+    const firebaseError = getFieldError('email');
+    const emailError = isFieldTouched('email') && getFieldError('email');
     const passwordError =
-      isFieldTouched("password") && getFieldError("password");
+      isFieldTouched('password') && getFieldError('password');
 
     return (
       <Form layout="inline" onSubmit={this.handleSubmit}>
         <FormItem
-          validateStatus={emailError ? "error" : ""}
-          help={emailError || firebaseError || ""}
+          validateStatus={emailError ? 'error' : ''}
+          help={emailError || firebaseError || ''}
         >
-          {getFieldDecorator("email", {
+          {getFieldDecorator('email', {
             rules: [
-              { required: true, message: "Please enter an email address" }
-            ]
+              { required: true, message: 'Please enter an email address' },
+            ],
           })(
             <Input
               prefix={<Icon type="user" style={{ fontSize: 13 }} />}
@@ -96,11 +96,11 @@ class Login extends Component {
         </FormItem>
 
         <FormItem
-          validateStatus={passwordError ? "error" : ""}
-          help={passwordError || ""}
+          validateStatus={passwordError ? 'error' : ''}
+          help={passwordError || ''}
         >
-          {getFieldDecorator("password", {
-            rules: [{ required: true, message: "Please enter a password" }]
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Please enter a password' }],
           })(
             <Input
               prefix={<Icon type="lock" style={{ fontSize: 13 }} />}

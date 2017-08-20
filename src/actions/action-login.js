@@ -11,6 +11,7 @@ import {
 } from './types';
 import firebase from 'firebase';
 import database from '../startup/db';
+import { fetchBelts, fetchBeltImages } from '../actions/index';
 
 const Users = database.ref().child('users');
 
@@ -24,6 +25,8 @@ const login = ({ email, password }) => {
           dispatch({ type: LOGIN_SUCCESS, payload: { user } });
           dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
           dispatch(setUserDbInfo(email));
+          dispatch(fetchBelts());
+          dispatch(fetchBeltImages());
           resolve(user);
         })
         .catch(error => {
@@ -45,6 +48,8 @@ const register = ({ email, password }) => {
           dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
           dispatch(setUserDbInfo(email));
           dispatch({ type: REGISTER_SUCCESS, payload: { user } });
+          dispatch(fetchBelts());
+          dispatch(fetchBeltImages());
           resolve(user);
         })
         .catch(error => {
@@ -106,4 +111,14 @@ const setUserDbInfo = email => {
   };
 };
 
-export { login, register, logout, createNewUser, setUserDbInfo };
+const loginPersist = user => {
+  return dispatch => {
+    dispatch({ type: LOGIN_SUCCESS, payload: { user } });
+    dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
+    dispatch(setUserDbInfo(user.email));
+    dispatch(fetchBelts());
+    dispatch(fetchBeltImages());
+  };
+};
+
+export { login, register, logout, createNewUser, setUserDbInfo, loginPersist };

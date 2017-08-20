@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import App from '../App';
-import { logout } from '../actions/index';
-import { fetchBelts, fetchBeltImages } from '../actions/index';
+import { login, logout, loginPersist } from '../actions/index';
 
 const mapStateToProps = state => {
   return {
@@ -12,9 +11,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
+  login,
   logout,
-  fetchBelts,
-  fetchBeltImages,
+  loginPersist,
 };
 
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom';
 import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
 import LoginStatus from './components/auth/login_status';
 import Welcome from './components/welcome';
 import AdminPanel from './components/admin/admin_panel';
 
+import firebase from 'firebase';
 import { Layout, Menu, Icon } from 'antd';
+
+import './styles/App.css';
+
 const { Header, Sider, Content } = Layout;
 
 class App extends Component {
@@ -14,9 +23,15 @@ class App extends Component {
     collapsed: true,
   };
 
-  componentDidMount() {
-    this.props.fetchBelts();
-    this.props.fetchBeltImages();
+  componentWillMount() {
+    // Listen for Auth Changes
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.loginPersist(user);
+      } else {
+        this.props.logout();
+      }
+    });
   }
 
   toggleSideMenu = () => {
@@ -81,7 +96,14 @@ class App extends Component {
                   minHeight: 280,
                 }}
               >
-                <Route exact={true} path="/" component={Welcome} />
+                <Route
+                  exact={true}
+                  path="/"
+                  render={() =>
+                    this.props.loggedIn
+                      ? <Redirect to="/belt-list" />
+                      : <Welcome />}
+                />
                 <Route path="/belt-list" component={BeltListContainer} />
                 <Route path="/admin-panel" component={AdminPanel} />
               </Content>
