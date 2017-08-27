@@ -1,10 +1,11 @@
-import { combineReducers } from "redux";
-import BeltsReducer from "./reducer_belts";
-import SelectedBeltReducer from "./reducer_selected_belt";
-import BeltImagesReducer from "./reducer_belt_images";
-import LoginReducer from "./reducer_login";
-import userAuthInfoReducer from "./reducer_set_user_auth_info";
-import userDbInfoReducer from "./reducer_set_user_db_info";
+import { combineReducers } from 'redux';
+import BeltsReducer from './reducer_belts';
+import SelectedBeltReducer from './reducer_selected_belt';
+import BeltImagesReducer from './reducer_belt_images';
+import LoginReducer from './reducer_login';
+import userAuthInfoReducer from './reducer_set_user_auth_info';
+import userDbInfoReducer from './reducer_set_user_db_info';
+import beltImageModalToggleReducer from './reducer_belt_image_modal_toggle';
 
 const rootReducer = combineReducers({
   belts: BeltsReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   beltImages: BeltImagesReducer,
   loggedIn: LoginReducer,
   userAuthInfo: userAuthInfoReducer,
-  userDbInfo: userDbInfoReducer
+  userDbInfo: userDbInfoReducer,
+  beltImageModalVisible: beltImageModalToggleReducer,
 });
 
 export default rootReducer;
