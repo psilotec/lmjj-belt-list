@@ -16,6 +16,7 @@ class BeltListDisplay extends Component {
               belts={this.props.belts}
               selectBelt={this.props.selectBelt}
               userDbInfo={this.props.userDbInfo}
+              beltImageModalToggle={this.props.beltImageModalToggle}
             />
           </div>
 
@@ -24,6 +25,9 @@ class BeltListDisplay extends Component {
                 <BeltImage
                   currentBeltImage={currentBeltImage}
                   beltImages={this.props.beltImages}
+                  selectedBelt={this.props.selectedBelt}
+                  beltImageModalVisible={this.props.beltImageModalVisible}
+                  beltImageModalToggle={this.props.beltImageModalToggle}
                 />
               </div>
             : 'Please select a belt'}
