@@ -40,7 +40,7 @@ a.return-lmjj-site {
   align-items: stretch;
   align-self: center;
   margin-right: 35%;
-  margin-left: 5%;
+  margin-left: 20%;
   align-self: stretch;
 }
 
@@ -100,4 +100,14 @@ a.return-lmjj-site {
 .login-action-text {
   margin-right: 10px;
   white-space: nowrap;
+}
+
+@media (min-width: 767px) {
+  .ant-modal-wrap {
+    display: none;
+  }
+
+  .ant-modal-mask {
+    display: none;
+  }
 }
