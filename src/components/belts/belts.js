@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, message } from 'antd';
 
-const Belts = ({ belts, selectBelt, userDbInfo }) => {
+const Belts = ({ belts, selectBelt, userDbInfo, beltImageModalToggle }) => {
   return (
     <div>
       {belts.map(belt => {
@@ -10,7 +10,10 @@ const Belts = ({ belts, selectBelt, userDbInfo }) => {
             <div
               className="item"
               key={belt.beltId}
-              onClick={() => selectBelt(belt.beltColor)}
+              onClick={() => {
+                selectBelt(belt.beltColor);
+                beltImageModalToggle();
+              }}
             >
               <Button size="large" type="primary" key={belt.beltId}>
                 {belt.beltName}
