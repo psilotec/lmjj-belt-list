@@ -5,7 +5,6 @@ import {
   Link,
   Redirect,
 } from 'react-router-dom';
-import './styles/App.css';
 import BeltListContainer from './containers/belt_list_container';
 import LoginStatus from './components/auth/login_status';
 import Welcome from './components/welcome';

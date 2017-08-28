@@ -1,4 +1,9 @@
-import { fetchBelts, selectBelt, fetchBeltImages } from './action-belts';
+import {
+  fetchBelts,
+  selectBelt,
+  fetchBeltImages,
+  beltImageModalToggle,
+} from './action-belts';
 import {
   login,
   register,
@@ -16,4 +21,5 @@ export {
   logout,
   createNewUser,
   loginPersist,
+  beltImageModalToggle,
 };

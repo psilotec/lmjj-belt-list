@@ -1,4 +1,9 @@
-import { FETCH_BELTS, BELT_SELECTED, FETCH_BELT_IMAGES } from './types';
+import {
+  FETCH_BELTS,
+  BELT_SELECTED,
+  FETCH_BELT_IMAGES,
+  BELT_IMAGE_MODAL_TOGGLE,
+} from './types';
 import database from '../startup/db';
 
 const Belts = database.ref().child('belts');
@@ -33,4 +38,10 @@ const fetchBeltImages = () => {
   };
 };
 
-export { fetchBelts, selectBelt, fetchBeltImages };
+const beltImageModalToggle = () => {
+  return {
+    type: BELT_IMAGE_MODAL_TOGGLE,
+  };
+};
+
+export { fetchBelts, selectBelt, fetchBeltImages, beltImageModalToggle };
