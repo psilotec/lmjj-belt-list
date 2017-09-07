@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import './Admin.css';
 
 .app {
   width: 100vw;
@@ -59,7 +60,7 @@ a.return-lmjj-site {
   line-height: 64px;
   padding: 0 16px;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 .side-menu-trigger:hover {
