@@ -38,7 +38,9 @@ class AdminPanelDisplay extends Component {
           <Option value="black">Black</Option>
         </Select>
 
-        <Button type="primary">Submit</Button>
+        <Button className="admin-submit" type="primary">
+          Submit
+        </Button>
       </div>
     );
   }
