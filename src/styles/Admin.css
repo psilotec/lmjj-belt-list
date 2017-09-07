@@ -12,6 +12,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: #ececec solid 1px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
 }
 
 .user-name {
@@ -33,4 +37,8 @@
   background-color: #a5d6a7;
   font-weight: bold;
   padding: 0.13em 1em;
+}
+
+.admin-submit {
+  margin-top: 10px;
 }
