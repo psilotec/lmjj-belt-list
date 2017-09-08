@@ -11,6 +11,7 @@ import {
   createNewUser,
   loginPersist,
 } from './action-login';
+import { searchUser } from './action-admin';
 
 export {
   fetchBelts,
@@ -22,4 +23,5 @@ export {
   createNewUser,
   loginPersist,
   beltImageModalToggle,
+  searchUser,
 };
