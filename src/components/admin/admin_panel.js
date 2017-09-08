@@ -12,7 +12,7 @@ class AdminPanel extends Component {
             placeholder="input search text"
             style={{ width: 200 }}
             size="large"
-            onSearch={value => console.log(value)}
+            onSearch={value => this.props.searchUser(value)}
           />
         </div>
 
