@@ -112,3 +112,8 @@ a.return-lmjj-site {
     display: none;
   }
 }
+
+/* Scale belt list image inside modal on mobile */
+.current-belt-image {
+  max-width: 100%;
+}
