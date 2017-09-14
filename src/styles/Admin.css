@@ -32,6 +32,7 @@
   padding: 2em;
   margin-bottom: 1em;
   height: 35vh;
+  transition: 1s ease all;
 }
 
 .user-belt {

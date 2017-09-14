@@ -3,7 +3,9 @@ import AdminPanel from '../components/admin/admin_panel';
 import { searchUser } from '../actions/index';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    searchedUser: state.searchedUser,
+  };
 };
 
 const mapDispatchToProps = {
