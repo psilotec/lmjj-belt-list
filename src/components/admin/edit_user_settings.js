@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserInfo from './user_info';
+import ChooseUser from './choose_user';
 import { Select, Button } from 'antd';
 
 const Option = Select.Option;
@@ -17,7 +18,7 @@ class EditUserSettings extends Component {
     return (
       <div>
         {multipleUsers > 1 ? (
-          <div>Multiple Users</div>
+          <ChooseUser searchedUser={this.props.searchedUser} />
         ) : (
           <div>
             <UserInfo />
