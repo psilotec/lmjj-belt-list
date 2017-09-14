@@ -44,3 +44,14 @@
 .admin-submit {
   margin-top: 10px;
 }
+
+.choose-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.choose-user-btn {
+  margin-top: 10px;
+}
