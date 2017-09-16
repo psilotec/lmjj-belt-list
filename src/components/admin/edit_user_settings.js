@@ -23,7 +23,7 @@ class EditUserSettings extends Component {
           <div className="edit-user-settings">
             <UserInfo searchedUser={this.props.searchedUser} />
             <Select
-              defaultValue="currentBelt"
+              defaultValue="Select a new belt"
               style={{ width: 200 }}
               size="large"
               onChange={handleChange}
