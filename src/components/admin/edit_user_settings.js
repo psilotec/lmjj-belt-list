@@ -20,7 +20,7 @@ class EditUserSettings extends Component {
         {usersReturnedFromSearch > 1 ? (
           <ChooseUser searchedUser={this.props.searchedUser} />
         ) : (
-          <div>
+          <div className="edit-user-settings">
             <UserInfo searchedUser={this.props.searchedUser} />
             <Select
               defaultValue="currentBelt"
