@@ -12,16 +12,16 @@ function handleChange(value) {
 class EditUserSettings extends Component {
   render() {
     // If there are multiple users returned from the search query, display ChooseUser component
-    let multipleUsers =
+    let usersReturnedFromSearch =
       this.props.searchedUser && Object.keys(this.props.searchedUser).length;
 
     return (
       <div>
-        {multipleUsers > 1 ? (
+        {usersReturnedFromSearch > 1 ? (
           <ChooseUser searchedUser={this.props.searchedUser} />
         ) : (
           <div>
-            <UserInfo />
+            <UserInfo searchedUser={this.props.searchedUser} />
             <Select
               defaultValue="currentBelt"
               style={{ width: 200 }}

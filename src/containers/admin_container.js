@@ -5,6 +5,7 @@ import { searchUser } from '../actions/index';
 const mapStateToProps = state => {
   return {
     searchedUser: state.searchedUser,
+    userDbInfo: state.userDbInfo,
   };
 };
 
