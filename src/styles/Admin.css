@@ -35,12 +35,6 @@
   transition: 1s ease all;
 }
 
-.user-belt {
-  background-color: #a5d6a7;
-  font-weight: bold;
-  padding: 0.13em 1em;
-}
-
 .admin-submit {
   margin-top: 10px;
 }
@@ -61,4 +55,45 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
+}
+
+.user-belt {
+  font-weight: bold;
+  padding: 0.13em 1em;
+}
+
+.white {
+  background-color: #f5f5f5;
+}
+
+.yellow {
+  background-color: #fff59d;
+}
+
+.orange {
+  background-color: #ffcc80;
+}
+
+.green {
+  background-color: #a5d6a7;
+}
+
+.blue {
+  background-color: #90caf9;
+}
+
+.red {
+  background-color: #ef9a9a;
+}
+
+.purple {
+  background-color: #b39ddb;
+}
+.brown {
+  background-color: #a98274;
+  color: #ffffff;
+}
+.black {
+  background-color: #424242;
+  color: #ffffff;
 }
