@@ -1,11 +1,11 @@
 import React from 'react';
 import EditUserSettings from './edit_user_settings';
 
-const AdminPanelDisplay = ({ searchedUser }) => {
+const AdminPanelDisplay = ({ searchedUser, searchUser }) => {
   return (
     <div className="admin-panel-display">
       {searchedUser !== null ? (
-        <EditUserSettings searchedUser={searchedUser} />
+        <EditUserSettings searchUser={searchUser} searchedUser={searchedUser} />
       ) : (
         ''
       )}

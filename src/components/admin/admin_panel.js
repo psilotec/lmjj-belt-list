@@ -19,7 +19,10 @@ class AdminPanel extends Component {
               />
             </div>
 
-            <AdminPanelDisplay searchedUser={this.props.searchedUser} />
+            <AdminPanelDisplay
+              searchUser={this.props.searchUser}
+              searchedUser={this.props.searchedUser}
+            />
           </div>
         ) : (
           <div className="content-message-center">

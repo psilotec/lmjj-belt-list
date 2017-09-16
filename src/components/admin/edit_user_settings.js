@@ -18,7 +18,10 @@ class EditUserSettings extends Component {
     return (
       <div>
         {usersReturnedFromSearch > 1 ? (
-          <ChooseUser searchedUser={this.props.searchedUser} />
+          <ChooseUser
+            searchUser={this.props.searchUser}
+            searchedUser={this.props.searchedUser}
+          />
         ) : (
           <div className="edit-user-settings">
             <UserInfo searchedUser={this.props.searchedUser} />

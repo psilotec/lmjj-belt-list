@@ -6,7 +6,13 @@ class ChooseUser extends Component {
   mapUsers = () => {
     return Object.entries(this.props.searchedUser).map(user => {
       return (
-        <Button key={user[1].name} className="choose-user-btn">
+        <Button
+          key={user[1].name}
+          className="choose-user-btn"
+          onClick={() => {
+            this.props.searchUser(user[1].name);
+          }}
+        >
           {user[1].name}
         </Button>
       );
