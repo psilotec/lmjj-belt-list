@@ -10,7 +10,7 @@ class ChooseUser extends Component {
           key={user[1].name}
           className="choose-user-btn"
           onClick={() => {
-            this.props.searchUser(user[1].name);
+            this.props.searchUser(user[1].name.toLowerCase());
           }}
         >
           {user[1].name}
