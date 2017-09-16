@@ -6,7 +6,7 @@ const Users = database.ref().child('users');
 const searchUser = email => {
   return dispatch => {
     console.log(email);
-    // Find user
+    // Find user, fetch user data, and return to be parsed
     Users.orderByChild('name')
       .startAt(email)
       .endAt(email + '\uf8ff')
@@ -17,10 +17,17 @@ const searchUser = email => {
           payload: snapshot.val(),
         });
       });
-    // Fetch user data
-
-    // Return user data object to be parsed in reducer
   };
 };
 
-export { searchUser };
+const changeUserBelt = (userId, newBelt) => {
+  return dispatch => {
+    return new Promise((resolve, reject) => {
+      Users.child(userId)
+        .update({ beltPermissionId: newBelt })
+        .then(() => resolve());
+    });
+  };
+};
+
+export { searchUser, changeUserBelt };

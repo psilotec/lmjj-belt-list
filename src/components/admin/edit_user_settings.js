@@ -5,11 +5,25 @@ import { Select, Button } from 'antd';
 
 const Option = Select.Option;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
-
 class EditUserSettings extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { newBelt: 0 };
+  }
+
+  handleChange = value => {
+    this.setState((prevState, props) => ({
+      newBelt: value,
+    }));
+  };
+
+  handleSubmitBeltChange = () => {
+    this.props.changeUserBelt(
+      Object.entries(this.props.searchedUser)[0][0],
+      this.state.newBelt
+    );
+  };
+
   render() {
     // If there are multiple users returned from the search query, display ChooseUser component
     let usersReturnedFromSearch =
@@ -29,26 +43,30 @@ class EditUserSettings extends Component {
               defaultValue="Select a new belt"
               style={{ width: 200 }}
               size="large"
-              onChange={handleChange}
+              onChange={this.handleChange}
             >
-              <Option value="white">White</Option>
-              <Option value="yellow">Yellow</Option>
-              <Option value="yellowb">Yellow - Black stripe</Option>
-              <Option value="orange">Orange</Option>
-              <Option value="orangeb">Orange - Black Stripe</Option>
-              <Option value="green">Green</Option>
-              <Option value="greenb">Green - Black Stripe</Option>
-              <Option value="red">Red</Option>
-              <Option value="redb">Red - Black Stripe</Option>
-              <Option value="blue">Blue</Option>
-              <Option value="blueb">Blue - Black Stripe</Option>
-              <Option value="purple">Purple</Option>
-              <Option value="purpleb">Purple - Black Stripe</Option>
-              <Option value="brown">Brown</Option>
-              <Option value="brownb">Brown - Black Stripe</Option>
-              <Option value="black">Black</Option>
+              <Option value="0">White</Option>
+              <Option value="1">Yellow</Option>
+              <Option value="2">Yellow - Black stripe</Option>
+              <Option value="3">Orange</Option>
+              <Option value="4">Orange - Black Stripe</Option>
+              <Option value="5">Green</Option>
+              <Option value="6">Green - Black Stripe</Option>
+              <Option value="7">Red</Option>
+              <Option value="8">Red - Black Stripe</Option>
+              <Option value="9">Blue</Option>
+              <Option value="10">Blue - Black Stripe</Option>
+              <Option value="11">Purple</Option>
+              <Option value="12">Purple - Black Stripe</Option>
+              <Option value="13">Brown</Option>
+              <Option value="14">Brown - Black Stripe</Option>
+              <Option value="15">Black</Option>
             </Select>
-            <Button className="admin-submit" type="primary">
+            <Button
+              className="admin-submit"
+              type="primary"
+              onClick={this.handleSubmitBeltChange}
+            >
               Submit
             </Button>
           </div>

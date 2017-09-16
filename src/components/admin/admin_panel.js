@@ -22,6 +22,7 @@ class AdminPanel extends Component {
             <AdminPanelDisplay
               searchUser={this.props.searchUser}
               searchedUser={this.props.searchedUser}
+              changeUserBelt={this.props.changeUserBelt}
             />
           </div>
         ) : (

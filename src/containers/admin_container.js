@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AdminPanel from '../components/admin/admin_panel';
-import { searchUser } from '../actions/index';
+import { searchUser, changeUserBelt } from '../actions/index';
 
 const mapStateToProps = state => {
   return {
@@ -11,6 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   searchUser,
+  changeUserBelt,
 };
 
 const AdminContainer = connect(mapStateToProps, mapDispatchToProps)(AdminPanel);
