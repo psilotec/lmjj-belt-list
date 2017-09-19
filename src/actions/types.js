@@ -14,3 +14,6 @@ export const SET_USER_DB_INFO = 'SET_USER_DB_INFO';
 export const CLEAR_USER_INFO = 'CLEAR_USER_INFO';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAIL = 'LOGOUT_FAIL';
+
+// Admin
+export const SEARCH_USER = 'SEARCH_USER';

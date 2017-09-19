@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import './Admin.css';
 
 .app {
   width: 100vw;
@@ -59,7 +60,7 @@ a.return-lmjj-site {
   line-height: 64px;
   padding: 0 16px;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 .side-menu-trigger:hover {
@@ -99,6 +100,7 @@ a.return-lmjj-site {
 
 .login-action-text {
   margin-right: 10px;
+  margin-left: 5px;
   white-space: nowrap;
 }
 
@@ -110,4 +112,9 @@ a.return-lmjj-site {
   .ant-modal-mask {
     display: none;
   }
+}
+
+/* Scale belt list image inside modal on mobile */
+.current-belt-image {
+  max-width: 100%;
 }

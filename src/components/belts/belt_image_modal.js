@@ -8,21 +8,19 @@ class BeltImageModal extends Component {
 
   render() {
     return (
-      <div>
-        <Modal
-          visible={this.props.beltImageModalVisible}
-          onOk={this.handleOk}
-          onCancel={this.handleOk}
-          okText="Close"
-          cancelText="Close"
-        >
-          <img
-            src={this.props.currentBeltImage}
-            alt="Belt"
-            className="current-belt-image"
-          />
-        </Modal>
-      </div>
+      <Modal
+        visible={this.props.beltImageModalVisible}
+        onOk={this.handleOk}
+        onCancel={this.handleOk}
+        okText="Close"
+        cancelText="Close"
+      >
+        <img
+          src={this.props.currentBeltImage}
+          alt="Belt"
+          className="current-belt-image"
+        />
+      </Modal>
     );
   }
 }

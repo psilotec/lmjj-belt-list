@@ -5,7 +5,12 @@ const Belts = ({ belts, selectBelt, userDbInfo, beltImageModalToggle }) => {
   return (
     <div>
       {belts.map(belt => {
-        if (userDbInfo.beltPermissionId >= belt.beltId) {
+        console.log(userDbInfo.beltPermissionId + ' belt perm id');
+        console.log(belt.beltId + ' BELT.BELTID');
+        console.log(userDbInfo.beltPermissionId >= belt.beltId);
+        if (
+          parseInt(userDbInfo.beltPermissionId, 10) >= parseInt(belt.beltId, 10)
+        ) {
           return (
             <div
               className="item"

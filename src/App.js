@@ -8,7 +8,7 @@ import {
 import BeltListContainer from './containers/belt_list_container';
 import LoginStatus from './components/auth/login_status';
 import Welcome from './components/welcome';
-import AdminPanel from './components/admin/admin_panel';
+import AdminContainer from './containers/admin_container';
 
 import firebase from 'firebase';
 import { Layout, Menu, Icon } from 'antd';
@@ -63,14 +63,17 @@ class App extends Component {
                     <span>Belt List</span>
                   </Link>
                 </Menu.Item>
-                {this.props.userDbInfo != null && this.props.userDbInfo.admin
-                  ? <Menu.Item key="2">
-                      <Link to={`/admin-panel`}>
-                        <Icon type="upload" />
-                        <span>Admin Console</span>
-                      </Link>
-                    </Menu.Item>
-                  : ''}
+                {this.props.userDbInfo != null &&
+                this.props.userDbInfo.admin ? (
+                  <Menu.Item key="2">
+                    <Link to={`/admin-panel`}>
+                      <Icon type="upload" />
+                      <span>Admin Console</span>
+                    </Link>
+                  </Menu.Item>
+                ) : (
+                  ''
+                )}
               </Menu>
             </Sider>
 
@@ -99,12 +102,14 @@ class App extends Component {
                   exact={true}
                   path="/"
                   render={() =>
-                    this.props.loggedIn
-                      ? <Redirect to="/belt-list" />
-                      : <Welcome />}
+                    this.props.loggedIn ? (
+                      <Redirect to="/belt-list" />
+                    ) : (
+                      <Welcome />
+                    )}
                 />
                 <Route path="/belt-list" component={BeltListContainer} />
-                <Route path="/admin-panel" component={AdminPanel} />
+                <Route path="/admin-panel" component={AdminContainer} />
               </Content>
             </Layout>
           </Layout>

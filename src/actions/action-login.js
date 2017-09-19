@@ -84,7 +84,10 @@ const createNewUser = email => {
     name: email.toLowerCase(),
     beltPermissionId: 0,
     admin: false,
-    joinDate: new Date().toJSON().slice(0, 10).replace(/-/g, '/'),
+    joinDate: new Date()
+      .toJSON()
+      .slice(0, 10)
+      .replace(/-/g, '/'),
   };
 
   return dispatch => {
@@ -96,18 +99,20 @@ const createNewUser = email => {
 
 const setUserDbInfo = email => {
   return dispatch => {
-    Users.orderByChild('name').equalTo(email).on('value', snapshot => {
-      snapshot.forEach(childSnapshot => {
-        dispatch({
-          type: SET_USER_DB_INFO,
-          payload: {
-            admin: childSnapshot.val().admin,
-            beltPermissionId: childSnapshot.val().beltPermissionId,
-            joinDate: childSnapshot.val().joinDate,
-          },
+    Users.orderByChild('name')
+      .equalTo(email)
+      .on('value', snapshot => {
+        snapshot.forEach(childSnapshot => {
+          dispatch({
+            type: SET_USER_DB_INFO,
+            payload: {
+              admin: childSnapshot.val().admin,
+              beltPermissionId: childSnapshot.val().beltPermissionId,
+              joinDate: childSnapshot.val().joinDate,
+            },
+          });
         });
       });
-    });
   };
 };
 
