@@ -52,10 +52,10 @@ class EditUserSettings extends Component {
               <Option value="4">Orange - Black Stripe</Option>
               <Option value="5">Green</Option>
               <Option value="6">Green - Black Stripe</Option>
-              <Option value="7">Red</Option>
-              <Option value="8">Red - Black Stripe</Option>
-              <Option value="9">Blue</Option>
-              <Option value="10">Blue - Black Stripe</Option>
+              <Option value="7">Blue</Option>
+              <Option value="8">Blue - Black Stripe</Option>
+              <Option value="9">Red</Option>
+              <Option value="10">Red - Black Stripe</Option>
               <Option value="11">Purple</Option>
               <Option value="12">Purple - Black Stripe</Option>
               <Option value="13">Brown</Option>
